@@ -10,7 +10,7 @@ A plugin for KeePass to allow adding custom entries to the password expiration d
 
 ## Windows Installation
  1. Download latest release from [https://github.com/Mascavidrio/KeePassCPEO/releases](https://github.com/Mascavidrio/KeePassCPEO/releases).
- 2. Unzip directly to the KeePass directory.
+ 2. Copy plgx directly into the KeePass directory.
  3. Start KeePass.
 
 ## Using KeePassCPEO
