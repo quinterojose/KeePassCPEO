@@ -89,11 +89,12 @@ namespace KeePassCPEO
             if (!File.Exists(configFilePath))
             {
                 // Create sample dates.
-                CustomDateOptions = new List<CustomDateOption>();
-
-                CustomDateOptions.Add(new CustomDateOption { Days = 31 });
-                CustomDateOptions.Add(new CustomDateOption { Days = 45 });
-                CustomDateOptions.Add(new CustomDateOption { Days = 180 });
+                CustomDateOptions = new List<CustomDateOption>
+                {
+                    new CustomDateOption { Days = 31 },
+                    new CustomDateOption { Days = 45 },
+                    new CustomDateOption { Days = 180 }
+                };
             }
             else
             {
@@ -110,7 +111,7 @@ namespace KeePassCPEO
 
             // Add configuration menu option
             _configMenuItem = new ToolStripMenuItem("KeePassCPEO Options...");
-            _configMenuItem.Click += pluginMenuItem_Click;
+            _configMenuItem.Click += PluginMenuItem_Click;
             _configMenuItem.Image = Properties.Resources.B16x16_Misc;
 
             _configSeparator = new ToolStripSeparator();
@@ -153,9 +154,11 @@ namespace KeePassCPEO
                 // Add custom date options menu items.                
                 CustomDateOptions.ForEach(o =>
                 {
-                    ToolStripMenuItem customOptionMenuItem = new ToolStripMenuItem(o.ToString());
-                    customOptionMenuItem.Tag = o;
-                    customOptionMenuItem.Click += customOptionMenuItem_Click;
+                    ToolStripMenuItem customOptionMenuItem = new ToolStripMenuItem(o.ToString())
+                    {
+                        Tag = o
+                    };
+                    customOptionMenuItem.Click += CustomOptionMenuItem_Click;
                     entryForm.DefaultTimesContextMenu.Items.Add(customOptionMenuItem);
                 });
             }
@@ -166,7 +169,7 @@ namespace KeePassCPEO
         /// </summary>
         /// <param name="sender">The object firing the event.</param>
         /// <param name="e">The event parameters.</param>
-        private void customOptionMenuItem_Click(object sender, EventArgs e)
+        private void CustomOptionMenuItem_Click(object sender, EventArgs e)
         {
             ToolStripMenuItem customOptionMenuItem = sender as ToolStripMenuItem;
             CustomDateOption option = customOptionMenuItem.Tag as CustomDateOption;
@@ -182,7 +185,7 @@ namespace KeePassCPEO
         /// </summary>
         /// <param name="sender">The object firing the event.</param>
         /// <param name="e">The event parameters.</param>
-        private void pluginMenuItem_Click(object sender, EventArgs e)
+        private void PluginMenuItem_Click(object sender, EventArgs e)
         {
             CustomDateOptionsDialog optionsDialog = new CustomDateOptionsDialog(CustomDateOptions);
             UIUtil.ShowDialogAndDestroy(optionsDialog);
