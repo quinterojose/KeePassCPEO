@@ -6,7 +6,7 @@ A plugin for KeePass to allow adding custom entries to the password expiration d
  * Allow the user to select a custom password expiration option from the dropdown.
 
 ## System Requirements
- * KeePass 2.44 or higher.
+ * KeePass 2.49 or higher.
 
 ## Windows Installation
  1. Download latest release from [https://github.com/Mascavidrio/KeePassCPEO/releases](https://github.com/Mascavidrio/KeePassCPEO/releases).
