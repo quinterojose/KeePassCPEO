@@ -174,8 +174,8 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Custom Date Option";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CustomOptionDialog_FormClosed);
-            this.Load += new System.EventHandler(this.CustomOptionDialog_Load);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CustomDateOptionDialog_FormClosed);
+            this.Load += new System.EventHandler(this.CustomDateOptionDialog_Load);
             ((System.ComponentModel.ISupportInitialize)(this.daysNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BannerImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.monthsNumericUpDown)).EndInit();

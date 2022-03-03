@@ -133,8 +133,8 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "KeePassCPEO Options";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CustomOptionsDialog_FormClosed);
-            this.Load += new System.EventHandler(this.CustomOptionsDialog_Load);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CustomDateOptionsDialog_FormClosed);
+            this.Load += new System.EventHandler(this.CustomDateOptionsDialog_Load);
             ((System.ComponentModel.ISupportInitialize)(this.BannerImage)).EndInit();
             this.ResumeLayout(false);
 

@@ -1,3 +1,5 @@
+[![build](https://github.com/Mascavidrio/KeePassCPEO/actions/workflows/build.yaml/badge.svg)](https://github.com/Mascavidrio/KeePassCPEO/actions/workflows/build.yaml)
+
 # KeePassCPEO
 A plugin for KeePass to allow adding custom entries to the password expiration dropdown.
 

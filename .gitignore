@@ -232,5 +232,5 @@ _Pvt_Extensions
 # FAKE - F# Make
 .fake/
 
-# PLGX Build Folder
-PLGXBuild/
+# PLGX Files
+*.plgx
