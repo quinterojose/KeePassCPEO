@@ -7,10 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeePassCPEO", "KeePassCPEO\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{892DE921-E3F0-43AA-9DA9-996A8ECD3D8D}"
 	ProjectSection(SolutionItems) = preProject
-		..\.github\workflows\build.yaml = ..\.github\workflows\build.yaml
+		..\.github\workflows\build.yml = ..\.github\workflows\build.yml
 		..\LICENSE = ..\LICENSE
 		..\plugin-version.txt = ..\plugin-version.txt
 		..\README.md = ..\README.md
+		..\.github\workflows\release.yml = ..\.github\workflows\release.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit Tests", "Unit Tests", "{D58F61DD-9A8E-4204-9A52-3A85ED97D46C}"
