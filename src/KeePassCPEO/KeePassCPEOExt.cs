@@ -18,10 +18,6 @@ namespace KeePassCPEO
     {
         private IPluginHost _host;
 
-        private ToolStripSeparator _configSeparator;
-
-        private ToolStripMenuItem _configMenuItem;
-
         /// <summary>
         /// Gets the list of available custom date options.
         /// </summary>
@@ -102,15 +98,6 @@ namespace KeePassCPEO
             // Sort custom options
             CustomDateOptions.Sort((x, y) => string.Compare(x.ToString(), y.ToString()));
 
-            // Add configuration menu option
-            _configMenuItem = new ToolStripMenuItem("KeePassCPEO Options...");
-            _configMenuItem.Click += PluginMenuItem_Click;
-            _configMenuItem.Image = Properties.Resources.B16x16_Misc;
-
-            _configSeparator = new ToolStripSeparator();
-            _host.MainWindow.ToolsMenu.DropDownItems.Add(_configSeparator);
-            _host.MainWindow.ToolsMenu.DropDownItems.Add(_configMenuItem);
-
             return true;
         }
 
@@ -127,6 +114,21 @@ namespace KeePassCPEO
                 XmlSerializer serializer = new XmlSerializer(typeof(List<CustomDateOption>), new XmlRootAttribute("CustomDateOptions"));
                 serializer.Serialize(fileStream, CustomDateOptions);
             }
+        }
+
+        /// <inheritdoc/>
+        public override ToolStripMenuItem GetMenuItem(PluginMenuType t)
+        {
+            if (t == PluginMenuType.Main)
+                return new ToolStripMenuItem("KeePassCPEO Options...", Properties.Resources.B16x16_Misc, ConfigMenuItem_Click);
+
+            return null;
+        }
+
+        private void ConfigMenuItem_Click(object sender, EventArgs e)
+        {
+            CustomDateOptionsDialog optionsDialog = new CustomDateOptionsDialog(CustomDateOptions);
+            UIUtil.ShowDialogAndDestroy(optionsDialog);
         }
 
         private void GlobalWindowManager_WindowAdded(object sender, GwmWindowEventArgs e)
@@ -164,12 +166,6 @@ namespace KeePassCPEO
 
             // Set the date in the expiration date control
             setExpireIn.Invoke(entryForm, new object[] { option.Years, option.Months, option.Days }); // Years, Months, Days
-        }
-
-        private void PluginMenuItem_Click(object sender, EventArgs e)
-        {
-            CustomDateOptionsDialog optionsDialog = new CustomDateOptionsDialog(CustomDateOptions);
-            UIUtil.ShowDialogAndDestroy(optionsDialog);
         }
     }
 }
