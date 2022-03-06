@@ -36,6 +36,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.AddButton = new System.Windows.Forms.Button();
             this.DeleteButton = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.BannerImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,19 +44,19 @@
             // 
             this.BannerImage.Dock = System.Windows.Forms.DockStyle.Top;
             this.BannerImage.Location = new System.Drawing.Point(0, 0);
-            this.BannerImage.Margin = new System.Windows.Forms.Padding(4);
+            this.BannerImage.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.BannerImage.Name = "BannerImage";
-            this.BannerImage.Size = new System.Drawing.Size(482, 74);
+            this.BannerImage.Size = new System.Drawing.Size(723, 116);
             this.BannerImage.TabIndex = 13;
             this.BannerImage.TabStop = false;
             // 
             // CancelBtn
             // 
             this.CancelBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.CancelBtn.Location = new System.Drawing.Point(369, 333);
-            this.CancelBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.CancelBtn.Location = new System.Drawing.Point(554, 520);
+            this.CancelBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.CancelBtn.Name = "CancelBtn";
-            this.CancelBtn.Size = new System.Drawing.Size(100, 28);
+            this.CancelBtn.Size = new System.Drawing.Size(150, 44);
             this.CancelBtn.TabIndex = 15;
             this.CancelBtn.Text = "Cancel";
             this.CancelBtn.UseVisualStyleBackColor = true;
@@ -63,10 +64,10 @@
             // AcceptBtn
             // 
             this.AcceptBtn.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.AcceptBtn.Location = new System.Drawing.Point(261, 333);
-            this.AcceptBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.AcceptBtn.Location = new System.Drawing.Point(392, 520);
+            this.AcceptBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.AcceptBtn.Name = "AcceptBtn";
-            this.AcceptBtn.Size = new System.Drawing.Size(100, 28);
+            this.AcceptBtn.Size = new System.Drawing.Size(150, 44);
             this.AcceptBtn.TabIndex = 14;
             this.AcceptBtn.Text = "Accept";
             this.AcceptBtn.UseVisualStyleBackColor = true;
@@ -75,26 +76,28 @@
             // CustomOptionsListBox
             // 
             this.CustomOptionsListBox.FormattingEnabled = true;
-            this.CustomOptionsListBox.ItemHeight = 16;
-            this.CustomOptionsListBox.Location = new System.Drawing.Point(12, 81);
+            this.CustomOptionsListBox.ItemHeight = 25;
+            this.CustomOptionsListBox.Location = new System.Drawing.Point(18, 152);
+            this.CustomOptionsListBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.CustomOptionsListBox.Name = "CustomOptionsListBox";
-            this.CustomOptionsListBox.Size = new System.Drawing.Size(349, 228);
+            this.CustomOptionsListBox.Size = new System.Drawing.Size(522, 329);
             this.CustomOptionsListBox.TabIndex = 16;
             // 
             // label1
             // 
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label1.Location = new System.Drawing.Point(0, 319);
+            this.label1.Location = new System.Drawing.Point(0, 498);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(482, 2);
+            this.label1.Size = new System.Drawing.Size(723, 3);
             this.label1.TabIndex = 17;
             // 
             // AddButton
             // 
-            this.AddButton.Location = new System.Drawing.Point(369, 82);
-            this.AddButton.Margin = new System.Windows.Forms.Padding(4);
+            this.AddButton.Location = new System.Drawing.Point(554, 152);
+            this.AddButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(100, 28);
+            this.AddButton.Size = new System.Drawing.Size(150, 44);
             this.AddButton.TabIndex = 18;
             this.AddButton.Text = "Add...";
             this.AddButton.UseVisualStyleBackColor = true;
@@ -102,22 +105,32 @@
             // 
             // DeleteButton
             // 
-            this.DeleteButton.Location = new System.Drawing.Point(369, 118);
-            this.DeleteButton.Margin = new System.Windows.Forms.Padding(4);
+            this.DeleteButton.Location = new System.Drawing.Point(554, 208);
+            this.DeleteButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.DeleteButton.Name = "DeleteButton";
-            this.DeleteButton.Size = new System.Drawing.Size(100, 28);
+            this.DeleteButton.Size = new System.Drawing.Size(150, 44);
             this.DeleteButton.TabIndex = 19;
             this.DeleteButton.Text = "Delete";
             this.DeleteButton.UseVisualStyleBackColor = true;
             this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(13, 122);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(292, 25);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "Add or delete custom entries:";
+            // 
             // CustomDateOptionsDialog
             // 
             this.AcceptButton = this.AcceptBtn;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.CancelBtn;
-            this.ClientSize = new System.Drawing.Size(482, 374);
+            this.ClientSize = new System.Drawing.Size(723, 584);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.label1);
@@ -127,6 +140,7 @@
             this.Controls.Add(this.BannerImage);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CustomDateOptionsDialog";
@@ -137,6 +151,7 @@
             this.Load += new System.EventHandler(this.CustomDateOptionsDialog_Load);
             ((System.ComponentModel.ISupportInitialize)(this.BannerImage)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -149,5 +164,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Button DeleteButton;
+        private System.Windows.Forms.Label label2;
     }
 }
