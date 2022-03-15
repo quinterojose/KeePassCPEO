@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Reflection;
-using System.Text;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 
@@ -17,29 +16,18 @@ namespace KeePassCPEO
     /// </summary>
     public class KeePassCPEOExt : Plugin
     {
-        /// <summary>
-        /// The plugin host.
-        /// </summary>
         private IPluginHost _host;
 
         /// <summary>
-        /// Reference to the config menu item separator.
+        /// Gets the list of available custom date options.
         /// </summary>
-        private ToolStripSeparator _configSeparator;
-
-        /// <summary>
-        /// Reference to the config menu item.
-        /// </summary>
-        private ToolStripMenuItem _configMenuItem;
-
-        /// <summary>
-        /// The current list of custom date options.
-        /// </summary>
-        public List<CustomDateOption> CustomDateOptions { get; set; }
+        /// <value>The list of available custom date options.</value>
+        public List<CustomDateOption> CustomDateOptions { get; private set; }
 
         /// <summary>
         /// Gets the plugin update URL.
         /// </summary>
+        /// <value>The plugin update URL.</value>
         public override string UpdateUrl
         {
             get
@@ -49,8 +37,9 @@ namespace KeePassCPEO
         }
 
         /// <summary>
-        /// Icon to be displayed on the KeePass plugin list.
+        /// Gets the icon to be displayed on the KeePass plugin list.
         /// </summary>
+        /// <value>The icon to be displayed on the KeePass plugin list.</value>
         public override Image SmallIcon
         {
             get
@@ -60,9 +49,9 @@ namespace KeePassCPEO
         }
 
         /// <summary>
-        /// Build and return the path to the config file.
+        /// Gets the path to the config file.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The path to the config file.</returns>
         public static string GetConfigFilePath()
         {
             string configFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
@@ -75,7 +64,7 @@ namespace KeePassCPEO
         /// <summary>
         /// Initializes the plugin.
         /// </summary>
-        /// <param name="host">Reference to the plugin host object.</param>
+        /// <param name="host">Reference to the <see cref="IPluginHost"/> object.</param>
         /// <returns>True if the plugin is initialized properly, false otherwise.</returns>
         public override bool Initialize(IPluginHost host)
         {
@@ -109,15 +98,6 @@ namespace KeePassCPEO
             // Sort custom options
             CustomDateOptions.Sort((x, y) => string.Compare(x.ToString(), y.ToString()));
 
-            // Add configuration menu option
-            _configMenuItem = new ToolStripMenuItem("KeePassCPEO Options...");
-            _configMenuItem.Click += PluginMenuItem_Click;
-            _configMenuItem.Image = Properties.Resources.B16x16_Misc;
-
-            _configSeparator = new ToolStripSeparator();
-            _host.MainWindow.ToolsMenu.DropDownItems.Add(_configSeparator);
-            _host.MainWindow.ToolsMenu.DropDownItems.Add(_configMenuItem);
-
             return true;
         }
 
@@ -136,11 +116,21 @@ namespace KeePassCPEO
             }
         }
 
-        /// <summary>
-        /// Method to handle when a new window is opened.
-        /// </summary>
-        /// <param name="sender">The sender object.</param>
-        /// <param name="e">The event arguments.</param>
+        /// <inheritdoc/>
+        public override ToolStripMenuItem GetMenuItem(PluginMenuType t)
+        {
+            if (t == PluginMenuType.Main)
+                return new ToolStripMenuItem("KeePassCPEO Options...", Properties.Resources.B16x16_Misc, ConfigMenuItem_Click);
+
+            return null;
+        }
+
+        private void ConfigMenuItem_Click(object sender, EventArgs e)
+        {
+            CustomDateOptionsDialog optionsDialog = new CustomDateOptionsDialog(CustomDateOptions);
+            UIUtil.ShowDialogAndDestroy(optionsDialog);
+        }
+
         private void GlobalWindowManager_WindowAdded(object sender, GwmWindowEventArgs e)
         {
             // Get the password entry form
@@ -164,31 +154,18 @@ namespace KeePassCPEO
             }
         }
 
-        /// <summary>
-        /// Executes whenever the user clicks on one of the custom options to set the expiration date.
-        /// </summary>
-        /// <param name="sender">The object firing the event.</param>
-        /// <param name="e">The event parameters.</param>
         private void CustomOptionMenuItem_Click(object sender, EventArgs e)
         {
+            // Getting a reference to the password entry form
             ToolStripMenuItem customOptionMenuItem = sender as ToolStripMenuItem;
             CustomDateOption option = customOptionMenuItem.Tag as CustomDateOption;
             PwEntryForm entryForm = ((ContextMenuStrip)(((ToolStripMenuItem)sender).Owner)).SourceControl.TopLevelControl as PwEntryForm;
 
             // Using reflection here because there is a very convenient method in PwEntryForm to use but it's set to private.
             MethodInfo setExpireIn = entryForm.GetType().GetMethod("SetExpireIn", BindingFlags.NonPublic | BindingFlags.Instance);
-            setExpireIn.Invoke(entryForm, new object[] { option.Years, option.Months, option.Days }); // Years, Months, Days
-        }
 
-        /// <summary>
-        /// Executes whenever the user clicks on the options menu.
-        /// </summary>
-        /// <param name="sender">The object firing the event.</param>
-        /// <param name="e">The event parameters.</param>
-        private void PluginMenuItem_Click(object sender, EventArgs e)
-        {
-            CustomDateOptionsDialog optionsDialog = new CustomDateOptionsDialog(CustomDateOptions);
-            UIUtil.ShowDialogAndDestroy(optionsDialog);
+            // Set the date in the expiration date control
+            setExpireIn.Invoke(entryForm, new object[] { option.Years, option.Months, option.Days }); // Years, Months, Days
         }
     }
 }
