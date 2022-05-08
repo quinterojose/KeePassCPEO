@@ -161,11 +161,8 @@ namespace KeePassCPEO
             CustomDateOption option = customOptionMenuItem.Tag as CustomDateOption;
             PwEntryForm entryForm = ((ContextMenuStrip)(((ToolStripMenuItem)sender).Owner)).SourceControl.TopLevelControl as PwEntryForm;
 
-            // Using reflection here because there is a very convenient method in PwEntryForm to use but it's set to private.
-            MethodInfo setExpireIn = entryForm.GetType().GetMethod("SetExpireIn", BindingFlags.NonPublic | BindingFlags.Instance);
-
-            // Set the date in the expiration date control
-            setExpireIn.Invoke(entryForm, new object[] { option.Years, option.Months, option.Days }); // Years, Months, Days
+            // Set the expiration date.
+            entryForm.SetExpireIn(option.Years, option.Months, option.Days);
         }
     }
 }

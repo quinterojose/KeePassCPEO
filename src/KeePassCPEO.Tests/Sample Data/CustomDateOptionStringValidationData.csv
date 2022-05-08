@@ -1,0 +1,21 @@
+﻿days	months	years	expectedString
+1	0	0	1 Day
+0	1	0	1 Month
+0	0	1	1 Year
+1	1	0	1 Month, 1 Day
+0	1	1	1 Year, 1 Month
+1	0	1	1 Year, 1 Day
+1	1	1	1 Year, 1 Month, 1 Day
+2	0	0	2 Days
+0	2	0	2 Months
+0	0	2	2 Years
+2	2	0	2 Months, 2 Days
+0	2	2	2 Years, 2 Months
+2	0	2	2 Years, 2 Days
+2	1	1	1 Year, 1 Month, 2 Days
+2	2	1	1 Year, 2 Months, 2 Days
+2	2	2	2 Years, 2 Months, 2 Days
+1	2	1	1 Year, 2 Months, 1 Day
+1	1	2	2 Years, 1 Month, 1 Day
+2	1	2	2 Years, 1 Month, 2 Days
+0	0	0	

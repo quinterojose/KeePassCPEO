@@ -30,14 +30,14 @@ namespace KeePassCPEO
         {
             var parts = new List<string>();
 
-            if (Days > 0)
-                parts.Add(string.Format("{0} {1}", Days, Pluralize(Days, "Day", "Days")));
+            if (Years > 0)
+                parts.Add(string.Format("{0} {1}", Years, Pluralize(Years, "Year", "Years")));
 
             if (Months > 0)
                 parts.Add(string.Format("{0} {1}", Months, Pluralize(Months, "Month", "Months")));
 
-            if (Years > 0)
-                parts.Add(string.Format("{0} {1}", Years, Pluralize(Years, "Year", "Years")));
+            if (Days > 0)
+                parts.Add(string.Format("{0} {1}", Days, Pluralize(Days, "Day", "Days")));
 
             if (parts.Count == 0)
                 return string.Empty;
