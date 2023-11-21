@@ -5,8 +5,8 @@ on:
     tags:
       - '*'
 env:
-  KEEPASS_VERSION: '2.51'
-  KEEPASS_VERSION_MD5: '3B8DDA819ACF7E7A949CD4DA8DFE83F9'
+  KEEPASS_VERSION: '2.54'
+  KEEPASS_VERSION_MD5: '853590A1FFF9EF15CD5993FB2912027A'
   PLUGIN_SOURCE_DIRECTORY: 'src\KeePassCPEO'
   PLUGIN_OUTPUT_PATH: 'src\KeePassCPEO.plgx'
   PLUGIN_FILE_NAME: 'KeePassCPEO.plgx'
@@ -19,7 +19,17 @@ jobs:
     steps:
     - name: Checkout Source
       uses: actions/checkout@v2
-      
+
+    - name: Install GitTools
+      uses: gittools/actions/gitversion/setup@v0
+      with:
+        versionSpec: '5.x'
+
+    - name: Set Version Number
+      uses: gittools/actions/gitversion/execute@v0
+      with:
+        updateAssemblyInfo: true
+
     - name: Download KeePass Portable
       uses: carlosperate/download-file-action@v1.1.1
       with:
@@ -39,11 +49,3 @@ jobs:
         name: ${{ env.PLUGIN_FILE_NAME }}
         path: ${{ env.PLUGIN_OUTPUT_PATH }}
         if-no-files-found: error
-        
-    - name: Create Release
-      uses: ncipollo/release-action@v1
-      with:
-        name: '${{ env.PLUGIN_NAME }} ${{ github.ref_name }}'
-        artifacts: '**\${{ env.PLUGIN_FILE_NAME }}'
-        artifactErrorsFailBuild: true
-        token: ${{ secrets.GITHUB_TOKEN }}
