@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace KeePassCPEO
 {
     /// <summary>
     /// A custom date option entry.
     /// </summary>
-    public class CustomDateOption
+    public class CustomDateOption : IComparable<CustomDateOption>
     {
         /// <summary>
         /// Gets or sets the number of days.
@@ -45,12 +46,27 @@ namespace KeePassCPEO
             return string.Join(", ", parts);
         }
 
+        /// <summary>
+        /// Returns a <see cref="DateTime"/> that represents the current <see cref="CustomDateOption"/>.
+        /// </summary>
+        /// <returns>A <see cref="DateTime"/> that represents the current <see cref="CustomDateOption"/>.</returns>
+        public DateTime ToDate()
+        {
+            return DateTime.Now.AddDays(Days).AddMonths(Months).AddYears(Years).Date;
+        }
+
         private static string Pluralize(int number, string singular, string plural)
         {
             if (number == 1)
                 return singular;
             else
                 return plural;
+        }
+
+        /// <inheritdoc/>
+        public int CompareTo(CustomDateOption other)
+        {
+            throw new NotImplementedException();
         }
     }
 }

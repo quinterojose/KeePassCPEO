@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.Reflection;
+using System.Linq;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 
@@ -83,7 +83,7 @@ namespace KeePassCPEO
                     new CustomDateOption { Days = 31 },
                     new CustomDateOption { Days = 45 },
                     new CustomDateOption { Days = 180 }
-                };
+                }.OrderBy(e => e.ToDate()).ToList();
             }
             else
             {
@@ -96,7 +96,7 @@ namespace KeePassCPEO
             }
 
             // Sort custom options
-            CustomDateOptions.Sort((x, y) => string.Compare(x.ToString(), y.ToString()));
+            CustomDateOptions.Sort((x, y) => DateTime.Compare(x.ToDate(), y.ToDate()));
 
             return true;
         }

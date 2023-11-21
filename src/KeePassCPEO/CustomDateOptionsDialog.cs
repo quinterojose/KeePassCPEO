@@ -38,7 +38,7 @@ namespace KeePassCPEO
             if (customDateOptionDialog.DialogResult == DialogResult.OK)
             {
                 CustomDateOptions.Add(customDateOptionDialog.CustomDateOption);
-                CustomDateOptions.Sort((x, y) => string.Compare(x.ToString(), y.ToString()));
+                CustomDateOptions.Sort((x, y) => DateTime.Compare(x.ToDate(), y.ToDate()));
             }
             CustomOptionsListBox.Items.Clear();
             CustomDateOptions.ForEach(o => CustomOptionsListBox.Items.Add(o));
@@ -50,7 +50,7 @@ namespace KeePassCPEO
             if (option != null)
             {
                 CustomDateOptions.Remove(option);
-                CustomDateOptions.Sort((x, y) => string.Compare(x.ToString(), y.ToString()));
+                CustomDateOptions.Sort((x, y) => DateTime.Compare(x.ToDate(), y.ToDate()));
             }
             CustomOptionsListBox.Items.Clear();
             CustomDateOptions.ForEach(o => CustomOptionsListBox.Items.Add(o));
