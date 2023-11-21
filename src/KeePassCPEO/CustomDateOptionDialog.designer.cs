@@ -48,18 +48,19 @@
             // label1
             // 
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label1.Location = new System.Drawing.Point(0, 173);
+            this.label1.Location = new System.Drawing.Point(0, 270);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(378, 2);
+            this.label1.Size = new System.Drawing.Size(567, 3);
             this.label1.TabIndex = 15;
             // 
             // CancelBtn
             // 
             this.CancelBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.CancelBtn.Location = new System.Drawing.Point(265, 187);
-            this.CancelBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.CancelBtn.Location = new System.Drawing.Point(398, 292);
+            this.CancelBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.CancelBtn.Name = "CancelBtn";
-            this.CancelBtn.Size = new System.Drawing.Size(100, 28);
+            this.CancelBtn.Size = new System.Drawing.Size(150, 44);
             this.CancelBtn.TabIndex = 17;
             this.CancelBtn.Text = "Cancel";
             this.CancelBtn.UseVisualStyleBackColor = true;
@@ -67,10 +68,10 @@
             // AcceptBtn
             // 
             this.AcceptBtn.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.AcceptBtn.Location = new System.Drawing.Point(157, 187);
-            this.AcceptBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.AcceptBtn.Location = new System.Drawing.Point(236, 292);
+            this.AcceptBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.AcceptBtn.Name = "AcceptBtn";
-            this.AcceptBtn.Size = new System.Drawing.Size(100, 28);
+            this.AcceptBtn.Size = new System.Drawing.Size(150, 44);
             this.AcceptBtn.TabIndex = 16;
             this.AcceptBtn.Text = "Accept";
             this.AcceptBtn.UseVisualStyleBackColor = true;
@@ -78,84 +79,90 @@
             // 
             // daysNumericUpDown
             // 
-            this.daysNumericUpDown.Location = new System.Drawing.Point(12, 81);
+            this.daysNumericUpDown.Location = new System.Drawing.Point(18, 127);
+            this.daysNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.daysNumericUpDown.Maximum = new decimal(new int[] {
             365,
             0,
             0,
             0});
             this.daysNumericUpDown.Name = "daysNumericUpDown";
-            this.daysNumericUpDown.Size = new System.Drawing.Size(57, 22);
+            this.daysNumericUpDown.Size = new System.Drawing.Size(86, 31);
             this.daysNumericUpDown.TabIndex = 18;
             // 
             // BannerImage
             // 
             this.BannerImage.Dock = System.Windows.Forms.DockStyle.Top;
             this.BannerImage.Location = new System.Drawing.Point(0, 0);
-            this.BannerImage.Margin = new System.Windows.Forms.Padding(4);
+            this.BannerImage.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.BannerImage.Name = "BannerImage";
-            this.BannerImage.Size = new System.Drawing.Size(378, 74);
+            this.BannerImage.Size = new System.Drawing.Size(567, 116);
             this.BannerImage.TabIndex = 14;
             this.BannerImage.TabStop = false;
             // 
             // monthsNumericUpDown
             // 
-            this.monthsNumericUpDown.Location = new System.Drawing.Point(12, 109);
+            this.monthsNumericUpDown.Location = new System.Drawing.Point(18, 170);
+            this.monthsNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.monthsNumericUpDown.Maximum = new decimal(new int[] {
             12,
             0,
             0,
             0});
             this.monthsNumericUpDown.Name = "monthsNumericUpDown";
-            this.monthsNumericUpDown.Size = new System.Drawing.Size(57, 22);
+            this.monthsNumericUpDown.Size = new System.Drawing.Size(86, 31);
             this.monthsNumericUpDown.TabIndex = 19;
             // 
             // yearsNumericUpDown
             // 
-            this.yearsNumericUpDown.Location = new System.Drawing.Point(12, 137);
+            this.yearsNumericUpDown.Location = new System.Drawing.Point(18, 214);
+            this.yearsNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.yearsNumericUpDown.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
             this.yearsNumericUpDown.Name = "yearsNumericUpDown";
-            this.yearsNumericUpDown.Size = new System.Drawing.Size(57, 22);
+            this.yearsNumericUpDown.Size = new System.Drawing.Size(86, 31);
             this.yearsNumericUpDown.TabIndex = 20;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(75, 83);
+            this.label2.Location = new System.Drawing.Point(112, 130);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 17);
+            this.label2.Size = new System.Drawing.Size(61, 25);
             this.label2.TabIndex = 21;
             this.label2.Text = "Days";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(75, 111);
+            this.label3.Location = new System.Drawing.Point(112, 173);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 17);
+            this.label3.Size = new System.Drawing.Size(83, 25);
             this.label3.TabIndex = 22;
-            this.label3.Text = "Monts";
+            this.label3.Text = "Months";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(76, 139);
+            this.label4.Location = new System.Drawing.Point(114, 217);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 17);
+            this.label4.Size = new System.Drawing.Size(69, 25);
             this.label4.TabIndex = 23;
             this.label4.Text = "Years";
             // 
             // CustomDateOptionDialog
             // 
             this.AcceptButton = this.AcceptBtn;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.CancelBtn;
-            this.ClientSize = new System.Drawing.Size(378, 227);
+            this.ClientSize = new System.Drawing.Size(567, 355);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -168,6 +175,7 @@
             this.Controls.Add(this.BannerImage);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CustomDateOptionDialog";
