@@ -18,20 +18,20 @@ jobs:
 
     steps:
     - name: Checkout Source
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4.1.1       
 
     - name: Install GitTools
-      uses: gittools/actions/gitversion/setup@v0
+      uses: gittools/actions/gitversion/setup@v0.10.2
       with:
         versionSpec: '5.x'
 
     - name: Set Version Number
-      uses: gittools/actions/gitversion/execute@v0
+      uses: gittools/actions/gitversion/execute@v0.10.2
       with:
         updateAssemblyInfo: true
 
     - name: Download KeePass Portable
-      uses: carlosperate/download-file-action@v1.1.1
+      uses: carlosperate/download-file-action@v2.0.1
       with:
         file-url: 'https://sourceforge.net/projects/keepass/files/KeePass%202.x/${{ env.KEEPASS_VERSION }}/KeePass-${{ env.KEEPASS_VERSION }}.zip/download'
         file-name: 'KeePass-${{ env.KEEPASS_VERSION }}.zip'
@@ -44,7 +44,7 @@ jobs:
       run: KeePass-Portable\KeePass.exe --plgx-create ${{ github.workspace }}\${{ env.PLUGIN_SOURCE_DIRECTORY }}
 
     - name: Upload PLGX
-      uses: actions/upload-artifact@v2.3.1
+      uses: actions/upload-artifact@v3.1.3
       with:
         name: ${{ env.PLUGIN_FILE_NAME }}
         path: ${{ env.PLUGIN_OUTPUT_PATH }}
