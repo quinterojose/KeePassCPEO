@@ -2,12 +2,37 @@ using FileHelpers;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace KeePassCPEO.Tests
 {
     [TestClass]
     public class CustomDateOptionTest
     {
+        [TestMethod]
+        public void CustomDateOption_ToDate()
+        {
+            var expectedDateOptions = new List<CustomDateOption>
+            {
+                new CustomDateOption{ Days = 1 },
+                new CustomDateOption{ Days = 2 },
+                new CustomDateOption{ Months = 1, Days = 1 },
+                new CustomDateOption{ Months = 1, Days = 2 },
+                new CustomDateOption{ Years = 1 }
+            };
+
+            var actualDateOptions = new List<CustomDateOption>
+            {
+                new CustomDateOption{ Years = 1 },
+                new CustomDateOption{ Days = 1 },
+                new CustomDateOption{ Months = 1, Days = 2 },
+                new CustomDateOption{ Months = 1, Days = 1 },
+                new CustomDateOption{ Days = 2 }
+            }.OrderBy(dateOption => dateOption.ToDate()).ToList();
+
+            actualDateOptions.Should().BeEquivalentTo(expectedDateOptions);
+        }
+
         [DataTestMethod]
         [DynamicData(nameof(GetCustomDateOptionStringValidationData), DynamicDataSourceType.Method)]
         [DeploymentItem(@"Sample Data\CustomDateOptionStringValidationData.csv")]
