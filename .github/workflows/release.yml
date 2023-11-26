@@ -18,7 +18,9 @@ jobs:
 
     steps:
     - name: Checkout Source
-      uses: actions/checkout@v4.1.1       
+      uses: actions/checkout@v4.1.1
+      with:
+        fetch-depth: 0
 
     - name: Install GitTools
       uses: gittools/actions/gitversion/setup@v0.10.2
