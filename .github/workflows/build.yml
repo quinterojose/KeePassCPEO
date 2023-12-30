@@ -19,13 +19,13 @@ jobs:
 
     steps:
     - name: Checkout Source
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4.1.1
 
     - name: Set up MSBuild
-      uses: microsoft/setup-msbuild@v1.0.2
+      uses: microsoft/setup-msbuild@v1.3.1
 
     - name: Setup .NET Core SDK
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@v4.0.0
       with:
         dotnet-version: 6.0.x
 
@@ -36,4 +36,4 @@ jobs:
       run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.SOLUTION_FILE_PATH}} /p:RestorePackages=false
 
     - name: Run Unit Tests
-      run: dotnet test ${{env.TEST_PROJECT_PATH}} -c ${{env.BUILD_CONFIGURATION}} --no-restore --no-build
+      run: dotnet test ${{env.TEST_PROJECT_PATH}} -c ${{env.BUILD_CONFIGURATION}} --no-build
