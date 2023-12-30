@@ -14,20 +14,20 @@ namespace KeePassCPEO.Tests
         {
             var expectedDateOptions = new List<CustomDateOption>
             {
-                new CustomDateOption{ Days = 1 },
-                new CustomDateOption{ Days = 2 },
-                new CustomDateOption{ Months = 1, Days = 1 },
-                new CustomDateOption{ Months = 1, Days = 2 },
-                new CustomDateOption{ Years = 1 }
+                new() { Days = 1 },
+                new() { Days = 2 },
+                new() { Months = 1, Days = 1 },
+                new() { Months = 1, Days = 2 },
+                new() { Years = 1 }
             };
 
             var actualDateOptions = new List<CustomDateOption>
             {
-                new CustomDateOption{ Years = 1 },
-                new CustomDateOption{ Days = 1 },
-                new CustomDateOption{ Months = 1, Days = 2 },
-                new CustomDateOption{ Months = 1, Days = 1 },
-                new CustomDateOption{ Days = 2 }
+                new() { Years = 1 },
+                new() { Days = 1 },
+                new() { Months = 1, Days = 2 },
+                new() { Months = 1, Days = 1 },
+                new() { Days = 2 }
             }.OrderBy(dateOption => dateOption.ToDate()).ToList();
 
             actualDateOptions.Should().BeEquivalentTo(expectedDateOptions);

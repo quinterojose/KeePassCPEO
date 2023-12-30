@@ -16,8 +16,6 @@ namespace KeePassCPEO
     /// </summary>
     public class KeePassCPEOExt : Plugin
     {
-        private IPluginHost _host;
-
         /// <summary>
         /// Gets the list of available custom date options.
         /// </summary>
@@ -68,8 +66,6 @@ namespace KeePassCPEO
         /// <returns>True if the plugin is initialized properly, false otherwise.</returns>
         public override bool Initialize(IPluginHost host)
         {
-            _host = host;
-
             // Add handler to detect when a new window has been opened.
             GlobalWindowManager.WindowAdded += GlobalWindowManager_WindowAdded;
 
