@@ -25,7 +25,7 @@ jobs:
     - name: Install GitTools
       uses: gittools/actions/gitversion/setup@v0.10.2
       with:
-        versionSpec: '5.x'
+        versionSpec: '5.10'
 
     - name: Set Version Number
       uses: gittools/actions/gitversion/execute@v0.10.2
