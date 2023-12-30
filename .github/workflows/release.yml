@@ -31,6 +31,7 @@ jobs:
       uses: gittools/actions/gitversion/execute@v0.10.2
       with:
         updateAssemblyInfo: true
+        useConfigFile: true
 
     - name: Download KeePass Portable
       uses: carlosperate/download-file-action@v2.0.1
